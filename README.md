@@ -1,7 +1,7 @@
 # LEADVersion
 This is the Mass-GT version implemented in the Digital Twin platform of the LEAD project. This version is based on a tactical freight simulator version of early 2021.
 
-This repository consists on two versions of the MassGT implementation, each one in its own folder. The first folder called "Developer version" contains the version used for the development of the models and ran in local. The second folder called "LEAD packaging" has the version of the code implemented in docker containers in the Digital Twin platform of the LEAD project (and the implementation is tidier).
+This repository consists on two versions of the MassGT implementation, each one in its own folder. The first folder called **"Developer version"** contains the version used for the development of the models and ran in local. The second folder called **"LEAD packaging"** has the version of the code implemented in docker containers in the Digital Twin platform of the LEAD project (and the implementation is tidier).
 
 All models now export a KPI.json file with the main indicators of the run. 
 
