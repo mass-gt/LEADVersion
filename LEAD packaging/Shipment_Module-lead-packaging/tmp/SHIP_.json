@@ -1,0 +1,313 @@
+	{
+		"application": {
+			"$schema": "",
+			"$id": "path://to/git.repo",
+			"title": "Shipment_Synthesis",
+			"version": "Shipment_Synthesis v1",
+			"description": "Generates shipments for commodity matrices",
+			"application-information": {
+				"application-type": "script",
+				"application-language": "python",
+				"environment": "20.04.3 LTS (Focal Fossa)",
+				"application-location": "git://path-to-code",
+				"build-required": "yes",
+				"build-instruction": "pip install -r requirements.txt",
+				"execution-instruction": "python3 __module_SHIP__.py REF Input Output skimTijd_new_REF.mtx skimAfstand_new_REF.mtx nodes_v5.shp Zones_v6.shp SEGS2020.csv parcelNodes_v2.shp distributieCentra.csv nstrToLogisticSegment.csv MakeDistribution.csv UseDistribution.csv SupCoordinatesID.csv CorrectionsTonnes2016.csv CEPshares.csv Cost_VehType_2016.csv Cost_Sourcing_2016.csv NUTS32013toMRDH.csv CarryingCapacity.csv LogFlowtype_Shares.csv Params_TOD.csv Params_ShipSize_VehType.csv Params_EndTourFirst.csv Params_EndTourLater.csv ConsolidationPotential.csv ZEZscenario.csv Firms.csv"
+			}
+		},
+		"input": [{
+				"id": "0",
+				"arg": "0",
+				"desc": "ModelScript",
+				"requirements": [{
+					"filetype": ".py"
+				}]
+			},
+			{
+				"id": "1",
+				"arg": "1",
+				"desc": "Name of the Scenario",
+				"requirements": [{}]
+			},
+			{
+				"id": "2",
+				"arg": "2",
+				"desc": "InputFolder",
+				"requirements": [{}]
+			},
+			{
+				"id": "3",
+				"arg": "3",
+				"desc": "OutputFolder",
+				"requirements": [{}]
+			},
+			{
+				"id": "4",
+				"arg": "4",
+				"desc": "TimeSkimMatrix",
+				"requirements": [{
+					"filetype": ".mtx"
+				}]
+
+			},
+			{
+				"id": "5",
+				"arg": "5",
+				"desc": "DistanceSkimMatrix",
+				"requirements": [{
+					"filetype": ".mtx"
+				}]
+
+			},
+			{
+				"id": "6",
+				"arg": "6",
+				"desc": "logistics nodes",
+				"requirements": [{
+					"filetype": ".shp"
+				}]
+			},
+			{
+				"id": "7",
+				"arg": "7",
+				"desc": "study area",
+				"requirements": [{
+					"filetype": ".shp"
+				}]
+			},
+
+			{
+				"id": "8",
+				"arg": "8",
+				"desc": "SocioeconomicData",
+				"requirements": [{
+					"filetype": ".csv",
+					"colnames": [{
+						"zone": "int",
+						"1: woningen": "float",
+						"9: arbeidspl_totaal": "float"
+					}]
+				}]
+			},
+			{
+				"id": "9",
+				"arg": "9",
+				"desc": "ParcelNodes",
+				"requirements": [{
+					"filetype": ".shp"
+				}]
+			},
+			{
+				"id": "10",
+				"arg": "10",
+				"desc": "Distribution centers",
+				"requirements": [{
+					"filetype": ".csv",
+					"colnames": [{
+						"oppervlak":"float",
+						"WP": "int",
+						"Xcoor": "float",
+						"Ycoor": "float",
+						"AREANR": "int"
+					}]
+				}]
+
+			},
+			{
+				"id": "11",
+				"arg": "11",
+				"desc": "converion NSTR to Logistic segments",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "12",
+				"arg": "12",
+				"desc": "Distribution of making shipments per logistic sectors",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "13",
+				"arg": "13",
+				"desc": "Distribution of using shipments per logistic sectors",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "14",
+				"arg": "14",
+				"desc": "ExternalZones",
+				"requirements": [{
+					"filetype": ".csv",
+					"colnames": [{
+						"Xcoor": "float",
+						"Ycoor": "float",
+						"AREANR": "int"
+					}]
+				}]
+
+			},
+			{
+				"id": "15",
+				"arg": "15",
+				"desc": "correction of tonnes",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "16",
+				"arg": "16",
+				"desc": "CourierMarketShares",
+				"requirements": [{
+					"filetype": ".csv",
+					"colnames": [{
+						"CEP": "str",
+						"ShareTotal": "float"
+					}]
+				}]
+
+			},
+			{
+				"id": "17",
+				"arg": "17",
+				"desc": "cost per vehicle types",
+				"requirements": [{
+					"filetype": ".csv",
+					"columns":[{
+						"CostPerKm":"float",
+						"CostPerH": "float"
+					}]
+				}]
+			},
+			{
+				"id": "18",
+				"arg": "18",
+				"desc": "cost of out sourcing",
+				"requirements": [{
+					"filetype": ".csv",
+					"columns":[{
+						"CostPerKm":"float",
+						"CostPerH": "float"
+					}]
+				}]
+			},
+			{
+				"id": "19",
+				"arg": "19",
+				"desc": "NUTS32013 to MRDH conversion",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "20",
+				"arg": "20",
+				"desc": "carrying capacity",
+				"requirements": [{
+					"filetype": ".csv",
+					"columns":[{
+						"Vehicle Type":"str",
+						"Tonnes": "float"
+					}]
+				}]
+			},
+			{
+				"id": "21",
+				"arg": "21",
+				"desc": "market share of logistic flow types",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "22",
+				"arg": "22",
+				"desc": "parameters of time of day choice model",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "23",
+				"arg": "23",
+				"desc": "paraeters of shipment size and vehicle type choice model",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "24",
+				"arg": "24",
+				"desc": "Parameters of end of tour choice model for the first visited location",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "25",
+				"arg": "25",
+				"desc": "Parameters of the end of tour choice model for the later visited locations",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "26",
+				"arg": "26",
+				"desc": "consolidation potentials for different logistics sectors",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+
+			{
+				"id": "27",
+				"arg": "27",
+				"desc": "specifications for the zero emmission zones in the study area",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "28",
+				"arg": "28",
+				"desc": "synthesized firms specifications",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			}
+
+
+		],
+		"output": [{
+				"id": "1",
+				"desc": "Shipments_REF",
+				"filetype": ".csv"
+			},
+			{
+				"id": "2",
+				"desc": "zonal_attractions_REF",
+				"filetype": ".csv"
+			}, 
+			{
+				"id": "3",
+				"desc": "zonal_productions_REF",
+				"filetype": ".csv"
+			},
+			{
+				"id": "2",
+				"desc": "Shipments_REF",
+				"filetype": ".shp"
+			},
+			{
+				"id": "2",
+				"desc": "Logfile_ShipmentSynthesizer",
+				"filetype": ".log"
+			}
+		]
+	}
