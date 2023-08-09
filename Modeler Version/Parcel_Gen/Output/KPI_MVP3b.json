@@ -1,0 +1,14 @@
+{
+  "Number Of Parcels to be delivered per day (with redelivery)": 89924,
+  "New parcel daily demand": 81347.0,
+  "Redelivered parcels": 8577.0,
+  "Number Of Parcels to Parcel lockers": 511,
+  "ParcelDemand_Cycloon": 827,
+  "ParcelDemand_DHL": 20821,
+  "ParcelDemand_DPD": 9258,
+  "ParcelDemand_FedEx": 2383,
+  "ParcelDemand_GLS": 3768,
+  "ParcelDemand_MyPup": 0,
+  "ParcelDemand_PostNL": 44743,
+  "ParcelDemand_UPS": 8124
+}

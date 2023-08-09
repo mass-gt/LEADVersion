@@ -1,0 +1,13 @@
+ID	IsExternal	Comment
+1	0	"1: Producer to Consumer"
+2	0	"2: Producer to DC"
+3	0	"3: DC to Consumer"
+4	0	"4: Producer to TT"
+5	0	"5: DC to DC"
+6	0	"6: TT to Consumer"
+7	0	"7: DC to TT"
+8	0	"8: TT to DC"
+9	0	"9: TT to TT"
+10	1	"10: External Producer/Consumer to/from Producer/Consumer"
+11	1	"11: External Producer/Consumer to/from DC"
+12	1	"12: External Producer/Consumer to/from TT"

@@ -1,0 +1,298 @@
+	{
+		"application": {
+			"$schema": "",
+			"$id": "path://to/git.repo",
+			"title": "Tour module",
+			"version": "Tour_module v1",
+			"description": "assign shipments to scheduled tours",
+			"application-information": {
+				"application-type": "script",
+				"application-language": "python",
+				"environment": "20.04.3 LTS (Focal Fossa)",
+				"application-location": "git://path-to-code",
+				"build-required": "yes",
+				"build-instruction": "pip install -r requirements.txt",
+				"execution-instruction": "python3 __module_TOUR__.py REF Input Output skimTijd_new_REF.mtx skimAfstand_new_REF.mtx Zones_v6.shp SEGS2020.csv distributieCentra.csv SupCoordinatesID.csv CarryingCapacity.csv Params_TOD.csv Params_EndTourFirst.csv Params_EndTourLater.csv"
+			}
+		},
+		"input": [{
+				"id": "0",
+				"arg": "0",
+				"desc": "ModelScript",
+				"requirements": [{
+					"filetype": ".py"
+				}]
+			},
+			{
+				"id": "1",
+				"arg": "1",
+				"desc": "Name of the simulation",
+				"requirements": [{}]
+			},
+			{
+				"id": "2",
+				"arg": "2",
+				"desc": "InputFolder",
+				"requirements": [{}]
+			},
+			{
+				"id": "3",
+				"arg": "3",
+				"desc": "OutputFolder",
+				"requirements": [{}]
+			},
+			{
+				"id": "4",
+				"arg": "4",
+				"desc": "TimeSkimMatrix",
+				"requirements": [{
+					"filetype": ".mtx"
+				}]
+
+			},
+			{
+				"id": "5",
+				"arg": "5",
+				"desc": "DistanceSkimMatrix",
+				"requirements": [{
+					"filetype": ".mtx"
+				}]
+
+			},
+			{
+				"id": "6",
+				"arg": "6",
+				"desc": "StudyAreaShapefile",
+				"requirements": [{
+					"filetype": ".shp"
+				}]
+			},
+			{
+				"id": "7",
+				"arg": "7",
+				"desc": "SocioeconomicData",
+				"requirements": [{
+					"filetype": ".csv",
+					"colnames": [{
+						"zone": "int",
+						"1: woningen": "float",
+						"9: arbeidspl_totaal": "float"
+					}]
+				}]
+			},
+			{
+				"id": "8",
+				"arg": "8",
+				"desc": "Distribution centers",
+				"requirements": [{
+					"filetype": ".csv",
+					"colnames": [{
+						"oppervlak":"float",
+						"WP": "int",
+						"Xcoor": "float",
+						"Ycoor": "float",
+						"AREANR": "int"
+					}]
+				}]
+
+			},
+			{
+				"id": "9",
+				"arg": "9",
+				"desc": "ExternalZones",
+				"requirements": [{
+					"filetype": ".csv",
+					"colnames": [{
+						"Xcoor": "float",
+						"Ycoor": "float",
+						"AREANR": "int"
+					}]
+				}]
+
+			},
+			{
+				"id": "10",
+				"arg": "10",
+				"desc": "carrying capacity",
+				"requirements": [{
+					"filetype": ".csv",
+					"columns":[{
+						"Vehicle Type":"str",
+						"Tonnes": "float"
+					}]
+				}]
+			},
+			{
+				"id": "11",
+				"arg": "11",
+				"desc": "parameters of time of day choice model",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "12",
+				"arg": "12",
+				"desc": "Parameters of end of tour choice model for the first visited location",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			},
+			{
+				"id": "13",
+				"arg": "13",
+				"desc": "Parameters of the end of tour choice model for the later visited locations",
+				"requirements": [{
+					"filetype": ".csv"
+				}]
+			}
+		],
+		"output": [{
+				"id": "1",
+				"desc": "Shipments_AfterScheduling_REF",
+				"filetype": ".csv"
+			},
+			{
+				"id": "2",
+				"desc": "Tours_REF",
+				"filetype": ".csv"
+			}, 
+			{
+				"id": "3",
+				"desc": "Tours_REF",
+				"filetype": ".shp"
+			},
+			{
+				"id": "4",
+				"desc": "tripmatrix_REF",
+				"filetype": ".txt"
+			},
+			{
+				"id": "5",
+				"desc": "trip matrix at time 0:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "6",
+				"desc": "trip matrix at time 01:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "7",
+				"desc": "trip matrix at time 02:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "8",
+				"desc": "trip matrix at time 03:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "9",
+				"desc": "trip matrix at time 04:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "10",
+				"desc": "trip matrix at time 05:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "11",
+				"desc": "trip matrix at time 06:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "12",
+				"desc": "trip matrix at time 07:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "13",
+				"desc": "trip matrix at time 08:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "14",
+				"desc": "trip matrix at time 09:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "15",
+				"desc": "trip matrix at time 10:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "16",
+				"desc": "trip matrix at time 11:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "17",
+				"desc": "trip matrix at time 12:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "18",
+				"desc": "trip matrix at time 13:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "19",
+				"desc": "trip matrix at time 14:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "20",
+				"desc": "trip matrix at time 15:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "21",
+				"desc": "trip matrix at time 16:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "22",
+				"desc": "trip matrix at time 17:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "23",
+				"desc": "trip matrix at time 18:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "24",
+				"desc": "trip matrix at time 19:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "25",
+				"desc": "trip matrix at time 20:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "26",
+				"desc": "trip matrix at time 21:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "27",
+				"desc": "trip matrix at time 22:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "28",
+				"desc": "trip matrix at time 23:00",
+				"filetype": ".txt"
+			},
+			{
+				"id": "29",
+				"desc": " Log file for TourFormation module",
+				"filetype": ".txt"
+			}
+			
+			
+		]
+	}

@@ -1,0 +1,1 @@
+python3 __module_TOUR__.py REF Input Output skimTijd_new_REF.mtx skimAfstand_new_REF.mtx Zones_v6.shp SEGS2020.csv distributieCentra.csv SupCoordinatesID.csv CarryingCapacity.csv Params_TOD.csv Params_EndTourFirst.csv Params_EndTourLater.csv

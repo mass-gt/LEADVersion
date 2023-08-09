@@ -1,0 +1,11 @@
+Voertuigtype,CO2 (gram/km),SO2 (mg/km),PMv (mg/km),NOx (g/km),PMslijtage (mg/km)
+Bestelauto < 2 ton,185,1.1,47,0.8,16
+Bestelauto > 2 ton,275,1.6,39,1.4,16
+Vrachtauto < 10 ton,286,1.7,26,2.6,65
+Vrachtauto 10-20 ton,554,3.3,39,4.1,72
+Vrachtauto 10-20 ton + aanhanger,757,4.5,55,4.5,84
+Vrachtauto > 20 ton,796,4.8,50,5.4,82
+Vrachtauto > 20 ton + aanhanger,1019,6.1,66,5.5,95
+Trekker-oplegger licht,814,4.9,22,5,66
+Trekker-oplegger zwaar,981,5.9,47,3.6,71
+LZV,1324,7.9,56,4.8,104

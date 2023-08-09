@@ -1,0 +1,67 @@
+printKPI   =  True  ;  bool
+'''FOR PARCEL DEMAND MODULE'''
+# Changed parameters to C2X ACM post&pakketmonitor2020 20.8M parcels
+Seed   = 1 ;  float
+Gemeenten_studyarea =   [ 'Delft', 'Midden_Delfland', 'Rijswijk','sGravenhage','Leidschendam_Voorburg',] ;  list
+PARCELS_PER_HH_C2C    =  20.8 / 250 / 8.0   ;  eval # M parcels / days / M HHs 
+PARCELS_PER_HH_B2C    =  0.195   ;  eval
+PARCELS_PER_HH        =  varDict['PARCELS_PER_HH_C2C'] + varDict['PARCELS_PER_HH_B2C']  ;  eval
+PARCELS_PER_EMPL      =  0.000 ;  float
+Local2Local           =  0.04 ;  float
+CS_cust_willingness   =  0.50  ;  float # base Willingess to SEND a parcel by CS
+PARCELS_MAXLOAD  =  180 ;  float
+PARCELS_DROPTIME  =  120 ;  float
+PARCELS_SUCCESS_B2C    =  0.90 ;  float
+PARCELS_SUCCESS_B2B    =  0.95 ;  float
+PARCELS_GROWTHFREIGHT  =  1.0 ; 
+RUN_DEMAND_MODULE =  True ;  bool
+CROWDSHIPPING_NETWORK =  True ;  bool
+COMBINE_DELIVERY_PICKUP_TOUR  =  True  ;  bool
+HYPERCONNECTED_NETWORK =  False ;  bool
+printKPI   =  True  ;  bool
+PL_ZonalDemand           =  0.7     ;  float
+parcelLockers_zones =  [212,612,161,610,151,978,252,299,2359,800] ;  list
+CROWDSHIPPING_NETWORK =  False  ;  bool
+COMBINE_DELIVERY_PICKUP_TOUR  =  True  ;  bool
+HYPERCONNECTED_NETWORK =  False ;  bool
+TESTRUN                          =  False ;  bool
+'''FOR PARCEL MARKET MODULE'''
+hub_zones =  [] ;  list  # 585
+Gemeenten_CS =  ["sGravenhage", "Zoetermeer", "Midden_Delfland"] ;  list
+SCORE_ALPHAS =  [0,0,1,1] ;  list # ASC, alphaTime, alphaDist, alphaCost
+SCORE_COSTS =  [2, .2, .2, 0 , 0, 999999999990] ;  list # tour_based, consolidated, hub, cs_trans,interCEP_cost, interCEP_pickup
+CONSOLIDATED_MAXLOAD =  500 ;  int
+HyperConect   =  {"DHL": [] , "DPD": [] , "FedEx": [] ,  "GLS": [] ,"PostNL": [] ,  "UPS": [] , "Cycloon": [],"MyPup":[]} ;  list
+ParcelLockersfulfilment  =  ["Cycloon"]                                               ;  list
+CS_transshipment_nodes  =  []                                               ;  list
+'''FOR CROWDSHIPPING MATCHING MODULE'''
+CS_Willingess2Send        = 0.05 + (Cost-TradCost) * (-0.329) ;  string  # This is the crowdshipping demand function: choice: traditional vs CS
+CS_BaseBringerWillingess        =  -1.4 + 0.1 * np.random.normal(0,1)  ;  string  # This is the willigness a priori, not related with choice, more related to consideration sets!
+CS_BringerFilter                         =  {'age' : ['<35','35-55'] , 'income' : ['low','average','aboveAverage'], 'following_purpose' :['Home', 'Business', 'Leisure', 'Other', 'Groceries', 'Services', 'Social', 'BringGet', 'NonGroc', 'Touring'],'Mode' : ['Car','Walking or Biking']}   ;  list
+CS_BringerUtility                        =  0.1 + (-0.1) * Cost + (-0.062) * Time                        ; string
+Car_CostKM                               =  0.19 ;  string
+VOT                   =  9.00 ;  string
+PARCELS_DROPTIME_CAR  =  120  ;  int
+PARCELS_DROPTIME_BIKE =  60  ;  int #and car passenger
+PARCELS_DROPTIME_PT   =  0  ;  int #and walk
+CS_BringerScore =  Min_Detour ;  string # Min_Detour or Surplus 
+CS_COMPENSATION =  6  ;  string # Min_Detour or Surplus 
+CS_ALLOCATION                            =  best2best                                                             ;  string
+CS_UtilDiscount = SecondBest ;  string # Notused anymore
+PlatformComission =  0.15 ;  float # Comission by the platform
+CS_Costs =  0.00 ;  float # Other costs of CS (e.g. insurance)
+CarSpeed = 30.00 ;  float  # grams/km
+WalkBikeSpeed = 12.00 ;  float  # grams/km
+CarCO2 = 160.00 ;  float  # grams/km
+TradCost =  9.20 ;  float # Cost of a regular parcel (Same day delivery)
+CS_MaxParcelDistance =  10.00 ;  float # Distance
+CONSOLIDATED_TRIPS               =  True  ;  bool
+DEDICATED_CONSOLIDATED_TRIPS     =  False                               ;  bool
+'''FOR PARCEL SCHEDULING MODULE'''
+#PARCELS_MAXLOAD       =  180  ;  int
+PARCELS_DROPTIME      =  120  ;  int
+PARCELS_MAXLOAD_Hub2Hub =  500 ;  int
+PARCELS_DROPTIME_Hub2Hub =  90 ;  int
+''' NEW ADITIONS '''
+VEHICLES  =  {"DHL": ['Van','Van'] , "DPD":['Van','Van']  , "FedEx":['Van','Van']  ,  "GLS":['Van','Van']  ,"PostNL":['Van','Van']  ,  "UPS":['Van','Van']  , "Cycloon":['CargoBike','Van'],"MyPup":['Van','Van'] }           ;  list # Dict with CEPs, each with a list of delivery vehicle and consolidated vehicles
+CAPACITY  =  {'Van': [180,120], 'ConsoldVan': [180,60], 'CargoBike' : [50,120]  }                ;  list # Dict with vehicles, each with Max load (parcels) and Droptime (seconds)

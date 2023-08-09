@@ -1,0 +1,11 @@
+Vehicle Type,Tonnes
+Truck_Small,5000
+Truck_Medium,17500
+Truck_Large,40000
+TruckTrailer_Small,7500
+TruckTrailer_Large,27500
+TractorTrailer,40000
+SpecialVehicle,25000
+Van,1500
+LEVV,1000
+Moped,100
